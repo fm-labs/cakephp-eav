@@ -1,29 +1,29 @@
 <?php $this->Breadcrumbs->add(__('Eav Attribute Sets Attributes'), ['action' => 'index']); ?>
 <?php $this->Breadcrumbs->add(__('New {0}', __('Eav Attribute Sets Attribute'))); ?>
-<?= $this->Toolbar->addLink(
+<?php $this->Toolbar->addLink(
     __('List {0}', __('Eav Attribute Sets Attributes')),
     ['action' => 'index'],
     ['data-icon' => 'list']
 ) ?>
 <?php $this->Toolbar->startGroup('More'); ?>
-<?= $this->Toolbar->addLink(
+<?php $this->Toolbar->addLink(
     __('List {0}', __('Eav Attribute Sets')),
     ['controller' => 'EavAttributeSets', 'action' => 'index'],
     ['data-icon' => 'list']
 ) ?>
 
-<?= $this->Toolbar->addLink(
+<?php $this->Toolbar->addLink(
     __('New {0}', __('Eav Attribute Set')),
     ['controller' => 'EavAttributeSets', 'action' => 'add'],
     ['data-icon' => 'plus']
 ) ?>
-<?= $this->Toolbar->addLink(
+<?php $this->Toolbar->addLink(
     __('List {0}', __('Eav Attributes')),
     ['controller' => 'EavAttributes', 'action' => 'index'],
     ['data-icon' => 'list']
 ) ?>
 
-<?= $this->Toolbar->addLink(
+<?php $this->Toolbar->addLink(
     __('New {0}', __('Eav Attribute')),
     ['controller' => 'EavAttributes', 'action' => 'add'],
     ['data-icon' => 'plus']

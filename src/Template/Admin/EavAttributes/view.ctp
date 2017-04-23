@@ -1,47 +1,47 @@
 <?php $this->Breadcrumbs->add(__('Eav Attributes'), ['action' => 'index']); ?>
 <?php $this->Breadcrumbs->add($eavAttribute->title); ?>
-<?= $this->Toolbar->addLink(
+<?php $this->Toolbar->addLink(
     __('Edit {0}', __('Eav Attribute')),
     ['action' => 'edit', $eavAttribute->id],
     ['data-icon' => 'edit']
 ) ?>
-<?= $this->Toolbar->addLink(
+<?php $this->Toolbar->addLink(
     __('Delete {0}', __('Eav Attribute')),
     ['action' => 'delete', $eavAttribute->id],
     ['data-icon' => 'trash', 'confirm' => __('Are you sure you want to delete # {0}?', $eavAttribute->id)]) ?>
 
-<?= $this->Toolbar->addLink(
+<?php $this->Toolbar->addLink(
     __('List {0}', __('Eav Attributes')),
     ['action' => 'index'],
     ['data-icon' => 'list']
 ) ?>
-<?= $this->Toolbar->addLink(
+<?php $this->Toolbar->addLink(
     __('New {0}', __('Eav Attribute')),
     ['action' => 'add'],
     ['data-icon' => 'plus']
 ) ?>
-<?= $this->Toolbar->startGroup(__('More')); ?>
-<?= $this->Toolbar->addLink(
+<?php $this->Toolbar->startGroup(__('More')); ?>
+<?php $this->Toolbar->addLink(
     __('List {0}', __('Eav Attribute Sets Attributes')),
     ['controller' => 'EavAttributeSetsAttributes', 'action' => 'index'],
     ['data-icon' => 'list']
 ) ?>
-<?= $this->Toolbar->addLink(
+<?php $this->Toolbar->addLink(
     __('New {0}', __('Eav Attribute Sets Attribute')),
     ['controller' => 'EavAttributeSetsAttributes', 'action' => 'add'],
     ['data-icon' => 'plus']
 ) ?>
-<?= $this->Toolbar->addLink(
+<?php $this->Toolbar->addLink(
     __('List {0}', __('Eav Entity Attribute Values')),
     ['controller' => 'EavEntityAttributeValues', 'action' => 'index'],
     ['data-icon' => 'list']
 ) ?>
-<?= $this->Toolbar->addLink(
+<?php $this->Toolbar->addLink(
     __('New {0}', __('Eav Entity Attribute Value')),
     ['controller' => 'EavEntityAttributeValues', 'action' => 'add'],
     ['data-icon' => 'plus']
 ) ?>
-<?= $this->Toolbar->endGroup(); ?>
+<?php $this->Toolbar->endGroup(); ?>
 <div class="eavAttributes view">
     <h2 class="ui header">
         <?= h($eavAttribute->title) ?>

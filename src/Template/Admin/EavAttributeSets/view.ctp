@@ -1,67 +1,67 @@
 <?php $this->Breadcrumbs->add(__('Eav Attribute Sets'), ['action' => 'index']); ?>
 <?php $this->Breadcrumbs->add($eavAttributeSet->title); ?>
-<?= $this->Toolbar->addLink(
+<?php $this->Toolbar->addLink(
     __('Edit {0}', __('Eav Attribute Set')),
     ['action' => 'edit', $eavAttributeSet->id],
     ['data-icon' => 'edit']
 ) ?>
-<?= $this->Toolbar->addLink(
+<?php $this->Toolbar->addLink(
     __('Delete {0}', __('Eav Attribute Set')),
     ['action' => 'delete', $eavAttributeSet->id],
     ['data-icon' => 'trash', 'confirm' => __('Are you sure you want to delete # {0}?', $eavAttributeSet->id)]) ?>
 
-<?= $this->Toolbar->addLink(
+<?php $this->Toolbar->addLink(
     __('List {0}', __('Eav Attribute Sets')),
     ['action' => 'index'],
     ['data-icon' => 'list']
 ) ?>
-<?= $this->Toolbar->addLink(
+<?php $this->Toolbar->addLink(
     __('New {0}', __('Eav Attribute Set')),
     ['action' => 'add'],
     ['data-icon' => 'plus']
 ) ?>
-<?= $this->Toolbar->startGroup(__('More')); ?>
-<?= $this->Toolbar->addLink(
+<?php $this->Toolbar->startGroup(__('More')); ?>
+<?php $this->Toolbar->addLink(
     __('List {0}', __('Eav Attribute Sets Attributes')),
     ['controller' => 'EavAttributeSetsAttributes', 'action' => 'index'],
     ['data-icon' => 'list']
 ) ?>
-<?= $this->Toolbar->addLink(
+<?php $this->Toolbar->addLink(
     __('New {0}', __('Eav Attribute Sets Attribute')),
     ['controller' => 'EavAttributeSetsAttributes', 'action' => 'add'],
     ['data-icon' => 'plus']
 ) ?>
-<?= $this->Toolbar->addLink(
+<?php $this->Toolbar->addLink(
     __('List {0}', __('Eav Entity Attribute Values')),
     ['controller' => 'EavEntityAttributeValues', 'action' => 'index'],
     ['data-icon' => 'list']
 ) ?>
-<?= $this->Toolbar->addLink(
+<?php $this->Toolbar->addLink(
     __('New {0}', __('Eav Entity Attribute Value')),
     ['controller' => 'EavEntityAttributeValues', 'action' => 'add'],
     ['data-icon' => 'plus']
 ) ?>
-<?= $this->Toolbar->addLink(
+<?php $this->Toolbar->addLink(
     __('List {0}', __('Shop Categories')),
     ['controller' => 'ShopCategories', 'action' => 'index'],
     ['data-icon' => 'list']
 ) ?>
-<?= $this->Toolbar->addLink(
+<?php $this->Toolbar->addLink(
     __('New {0}', __('Shop Category')),
     ['controller' => 'ShopCategories', 'action' => 'add'],
     ['data-icon' => 'plus']
 ) ?>
-<?= $this->Toolbar->addLink(
+<?php $this->Toolbar->addLink(
     __('List {0}', __('Shop Products')),
     ['controller' => 'ShopProducts', 'action' => 'index'],
     ['data-icon' => 'list']
 ) ?>
-<?= $this->Toolbar->addLink(
+<?php $this->Toolbar->addLink(
     __('New {0}', __('Shop Product')),
     ['controller' => 'ShopProducts', 'action' => 'add'],
     ['data-icon' => 'plus']
 ) ?>
-<?= $this->Toolbar->endGroup(); ?>
+<?php $this->Toolbar->endGroup(); ?>
 <div class="eavAttributeSets view">
     <h2 class="ui header">
         <?= h($eavAttributeSet->title) ?>

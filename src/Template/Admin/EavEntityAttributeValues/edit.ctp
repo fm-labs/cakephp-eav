@@ -1,35 +1,35 @@
 <?php $this->Breadcrumbs->add(__('Eav Entity Attribute Values'), ['action' => 'index']); ?>
 <?php $this->Breadcrumbs->add(__('Edit {0}', __('Eav Entity Attribute Value'))); ?>
-<?= $this->Toolbar->addPostLink(
+<?php $this->Toolbar->addPostLink(
     __('Delete'),
     ['action' => 'delete', $eavEntityAttributeValue->id],
     ['data-icon' => 'trash', 'confirm' => __('Are you sure you want to delete # {0}?', $eavEntityAttributeValue->id)]
 )
 ?>
-<?= $this->Toolbar->addLink(
+<?php $this->Toolbar->addLink(
     __('List {0}', __('Eav Entity Attribute Values')),
     ['action' => 'index'],
     ['data-icon' => 'list']
 ) ?>
 <?php $this->Toolbar->startGroup('More'); ?>
-<?= $this->Toolbar->addLink(
+<?php $this->Toolbar->addLink(
     __('List {0}', __('Eav Attributes')),
     ['controller' => 'EavAttributes', 'action' => 'index'],
     ['data-icon' => 'list']
 ) ?>
 
-<?= $this->Toolbar->addLink(
+<?php $this->Toolbar->addLink(
     __('New {0}', __('Eav Attribute')),
     ['controller' => 'EavAttributes', 'action' => 'add'],
     ['data-icon' => 'plus']
 ) ?>
-<?= $this->Toolbar->addLink(
+<?php $this->Toolbar->addLink(
     __('List {0}', __('Eav Attribute Sets')),
     ['controller' => 'EavAttributeSets', 'action' => 'index'],
     ['data-icon' => 'list']
 ) ?>
 
-<?= $this->Toolbar->addLink(
+<?php $this->Toolbar->addLink(
     __('New {0}', __('Eav Attribute Set')),
     ['controller' => 'EavAttributeSets', 'action' => 'add'],
     ['data-icon' => 'plus']
