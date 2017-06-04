@@ -29,9 +29,7 @@ use Eav\Model\Entity\EavAttribute\EavAttributeTypeInterface;
 class EavAttribute extends Entity implements EntityTypeHandlerInterface
 {
 
-    use EntityTypeHandlerTrait {
-        //EntityTypeHandlerTrait::handler as typeHandler;
-    }
+    use EntityTypeHandlerTrait;
 
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().
@@ -46,16 +44,6 @@ class EavAttribute extends Entity implements EntityTypeHandlerInterface
         '*' => true,
         'id' => false
     ];
-
-
-    /**
-     * @return EavAttributeTypeInterface
-     * @throws \Exception
-     */
-    public function handler()
-    {
-        return $this->typeHandler();
-    }
 
     protected function _getHandlerNamespace()
     {
