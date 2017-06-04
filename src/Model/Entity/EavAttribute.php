@@ -3,6 +3,7 @@ namespace Eav\Model\Entity;
 
 use Banana\Model\EntityTypeHandlerInterface;
 use Banana\Model\EntityTypeHandlerTrait;
+use Cake\Datasource\EntityInterface;
 use Cake\ORM\Entity;
 use Eav\Model\Entity\EavAttribute\EavAttributeTypeInterface;
 
@@ -27,8 +28,10 @@ use Eav\Model\Entity\EavAttribute\EavAttributeTypeInterface;
  */
 class EavAttribute extends Entity implements EntityTypeHandlerInterface
 {
-    use EntityTypeHandlerTrait;
 
+    use EntityTypeHandlerTrait {
+        //EntityTypeHandlerTrait::handler as typeHandler;
+    }
 
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().
@@ -44,9 +47,6 @@ class EavAttribute extends Entity implements EntityTypeHandlerInterface
         'id' => false
     ];
 
-    use EntityTypeHandlerTrait {
-        EntityTypeHandlerTrait::handler as typeHandler;
-    }
 
     /**
      * @return EavAttributeTypeInterface
