@@ -2,7 +2,6 @@
 
 namespace Eav\Model\Behavior;
 
-
 use ArrayObject;
 use Cake\Collection\Collection;
 use Cake\Collection\Iterator\MapReduce;
@@ -62,7 +61,6 @@ class AttributesBehavior extends Behavior
         ]);
     }
 
-
     /**
      * @param Query $query
      * @param array $options
@@ -71,9 +69,9 @@ class AttributesBehavior extends Behavior
     public function findAttributes(Query $query, array $options = [])
     {
         $query->contain(['EavAttributeSets', 'EavEntityAttributeValues' => ['EavAttributes']]);
+
         return $query;
     }
-
 
     /**
      * 'beforeFind' callback
@@ -91,10 +89,8 @@ class AttributesBehavior extends Behavior
         $mapper = function ($row, $key, MapReduce $mapReduce) {
 
             if ($row instanceof EntityInterface) {
-
                 // append attribute values to result row / entity
                 foreach ($this->getAttributesValues($row) as $attrVal) {
-
                     $fieldName = $attrVal->eav_attribute->code;
                     $fieldData = $attrVal->getValue();
 
@@ -122,7 +118,6 @@ class AttributesBehavior extends Behavior
                 }
             }
 
-
             $mapReduce->emitIntermediate($row, $key);
         };
 
@@ -132,8 +127,6 @@ class AttributesBehavior extends Behavior
 
         $query->mapReduce($mapper, $reducer);
     }
-
-
 
     /**
      * @param EntityInterface $entity
@@ -155,6 +148,7 @@ class AttributesBehavior extends Behavior
                 return $attrVal;
             }
         }
+
         return null;
     }
 
@@ -168,6 +162,7 @@ class AttributesBehavior extends Behavior
             $attributes = $this->getAttributesValues($entity);
             $this->_attrs = $attributes->combine('eav_attribute.code', 'value');
         }
+
         return $this->_attrs;
     }
 
@@ -178,6 +173,7 @@ class AttributesBehavior extends Behavior
                 return $attr;
             }
         }
+
         return null;
     }
 
@@ -201,6 +197,7 @@ class AttributesBehavior extends Behavior
 
             $this->_attrsAvailable = new Collection($attrSet->get('eav_attributes'));
         }
+
         return $this->_attrsAvailable;
     }
 
@@ -216,6 +213,7 @@ class AttributesBehavior extends Behavior
                 return $attr;
             }
         }
+
         return null;
     }
 
@@ -226,14 +224,14 @@ class AttributesBehavior extends Behavior
      *
      *
      * @param EntityInterface $entity
-     * @param array $attrs
+     * @param array $atomic
      * @return mixed
      */
     public function saveAttributes(EntityInterface $entity, $atomic = true)
     {
         $eavCol = $this->_buildAttributesValues($entity);
 
-        $dbSetter = function() use (&$entity, &$eavCol, $atomic) {
+        $dbSetter = function () use (&$entity, &$eavCol, $atomic) {
 
             $return = null;
             foreach ($eavCol as $eav) {
@@ -244,6 +242,7 @@ class AttributesBehavior extends Behavior
                     $return = false;
                 }
             }
+
             return $return;
         };
 
@@ -253,12 +252,12 @@ class AttributesBehavior extends Behavior
             $success = $dbSetter();
         }
 
-
         // reset memory cached items
         if ($success) {
             $this->_attrs = null;
             $this->_attrsAvailable = null;
         }
+
         return $success;
     }
 
@@ -318,6 +317,7 @@ class AttributesBehavior extends Behavior
                 $errors[$eav->eav_attribute->code] = $eav->errors();
             }
         }
+
         return $errors;
     }
 
@@ -344,6 +344,7 @@ class AttributesBehavior extends Behavior
             foreach ($eavErrors as $attrCode => $errors) {
                 $entity->errors($attrCode, $errors);
             }
+
             return false;
         }
     }
@@ -366,13 +367,14 @@ class AttributesBehavior extends Behavior
     {
         $plugin = null;
         $tableName = $this->_table->alias();
-        list($namespace,) = namespaceSplit(get_class($this->_table));
+        list($namespace, ) = namespaceSplit(get_class($this->_table));
         if ($namespace && (($pos = strpos($namespace, '\\')) !== false)) {
             $plugin = substr($namespace, 0, $pos);
             if ($plugin == 'App' || $plugin == 'Cake') {
                 return $tableName;
             }
         }
+
         return join('.', [$plugin, $tableName]);
     }
 }

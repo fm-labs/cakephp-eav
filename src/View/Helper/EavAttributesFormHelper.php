@@ -2,7 +2,6 @@
 
 namespace Eav\View\Helper;
 
-
 use Cake\View\Helper;
 use Cake\View\Helper\FormHelper;
 use Cake\View\Helper\HtmlHelper;
@@ -22,6 +21,5 @@ class EavAttributesFormHelper extends Helper
 
     public function availableInputs()
     {
-
     }
 }

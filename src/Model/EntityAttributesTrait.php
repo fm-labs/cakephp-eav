@@ -1,7 +1,6 @@
 <?php
 namespace Eav\Model;
 
-
 use Eav\Exception\InvalidAttributeException;
 use Eav\Model\Behavior\AttributesBehavior;
 use Cake\ORM\Exception\MissingBehaviorException;
@@ -45,6 +44,7 @@ trait EntityAttributesTrait
         if (!$Table->behaviors()->has('Attributes')) {
             throw new MissingBehaviorException(['behaviour' => 'Eav.Attributes', 'class' => 'AttributesBehavior']);
         }
+
         return $Table;
     }
 
@@ -57,6 +57,7 @@ trait EntityAttributesTrait
             //@TODO Inject attributes_values property from behavior instead of lazy loading from table
             $this->_attributes = $this->_tableInstance()->getAttributes($this)->toArray();
         }
+
         return $this->_attributes;
     }
 
@@ -69,6 +70,7 @@ trait EntityAttributesTrait
             //@TODO Inject attributes_values property from behavior instead of lazy loading from table
             $this->_attributesValues = $this->_tableInstance()->getAttributesValues($this)->toArray();
         }
+
         return $this->_attributesValues;
     }
 
@@ -83,6 +85,7 @@ trait EntityAttributesTrait
                 ? $this->_tableInstance()->getAttributesAvailable($this)->toArray()
                 : null;
         }
+
         return $this->_attributesAvailable;
     }
 }

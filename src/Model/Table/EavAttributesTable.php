@@ -149,7 +149,6 @@ class EavAttributesTable extends Table
             'is_visible' => 0];
 
         foreach ($attributes as $attribute => $config) {
-
             $attr = $this->find()
                 ->where(['model' => $modelName, 'code' => $attribute])
                 ->first();
@@ -167,7 +166,6 @@ class EavAttributesTable extends Table
                     throw new \Exception('Failed to link attribute ' . $attribute . ' to set ' . $setCode);
                 }
             }
-
         }
 
         return true;

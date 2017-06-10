@@ -37,15 +37,12 @@ class AttributesFormInputsCell extends Cell
             $entity = $Table->patchEntity($entity, $this->request->data);
 
             try {
-
                 if (!$Table->save($entity)) {
                     debug("Saving failed");
                     $errors = $entity->errors();
                 }
-
             } catch (RolledbackTransactionException $ex) {
                 debug("Saving failed: " . $ex->getMessage());
-
             } catch (\Exception $ex) {
                 debug($ex->getMessage());
                 Log::error('Exception thrown while updating entity attributes: ' . $ex->getMessage());

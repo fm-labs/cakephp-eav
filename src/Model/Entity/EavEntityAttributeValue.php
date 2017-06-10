@@ -35,7 +35,6 @@ class EavEntityAttributeValue extends Entity
         'id' => false
     ];
 
-
     public function getValue()
     {
         return $this->get('value');

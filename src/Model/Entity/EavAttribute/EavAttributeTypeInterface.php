@@ -2,7 +2,6 @@
 
 namespace Eav\Model\Entity\EavAttribute;
 
-
 use Banana\Model\EntityTypeInterface;
 
 interface EavAttributeTypeInterface extends EntityTypeInterface
@@ -13,5 +12,4 @@ interface EavAttributeTypeInterface extends EntityTypeInterface
      * @return string
      */
     public function getDbType();
-
 }

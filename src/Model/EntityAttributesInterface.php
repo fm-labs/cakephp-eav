@@ -2,7 +2,6 @@
 
 namespace Eav\Model;
 
-
 use Cake\Datasource\ResultSetInterface;
 use Cake\ORM\ResultSet;
 

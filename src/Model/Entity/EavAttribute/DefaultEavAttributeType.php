@@ -8,7 +8,6 @@
 
 namespace Eav\Model\Entity\EavAttribute;
 
-
 use Banana\Model\EntityTypeInterface;
 use Cake\Datasource\EntityInterface;
 use Eav\Model\Entity\EavAttribute;
@@ -19,7 +18,7 @@ class DefaultEavAttributeType implements EavAttributeTypeInterface
      * @var EavAttribute
      */
     protected $_attr;
-    
+
     public function setEntity(EntityInterface $entity)
     {
         $this->_attr = $entity;

@@ -54,5 +54,4 @@ class EavAttribute extends Entity implements EntityTypeHandlerInterface
     {
         return $this->handler()->formatValue($entity, $field);
     }
-
 }

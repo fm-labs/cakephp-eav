@@ -53,6 +53,7 @@ class EavAttributeSetsAttributesController extends AppController
             $eavAttributeSetsAttribute = $this->EavAttributeSetsAttributes->patchEntity($eavAttributeSetsAttribute, $this->request->data);
             if ($this->EavAttributeSetsAttributes->save($eavAttributeSetsAttribute)) {
                 $this->Flash->success(__('The {0} has been saved.', __('eav attribute sets attribute')));
+
                 return $this->redirect(['action' => 'index']);
             } else {
                 $this->Flash->error(__('The {0} could not be saved. Please, try again.', __('eav attribute sets attribute')));
@@ -80,6 +81,7 @@ class EavAttributeSetsAttributesController extends AppController
             $eavAttributeSetsAttribute = $this->EavAttributeSetsAttributes->patchEntity($eavAttributeSetsAttribute, $this->request->data);
             if ($this->EavAttributeSetsAttributes->save($eavAttributeSetsAttribute)) {
                 $this->Flash->success(__('The {0} has been saved.', __('eav attribute sets attribute')));
+
                 return $this->redirect(['action' => 'index']);
             } else {
                 $this->Flash->error(__('The {0} could not be saved. Please, try again.', __('eav attribute sets attribute')));
@@ -107,6 +109,7 @@ class EavAttributeSetsAttributesController extends AppController
         } else {
             $this->Flash->error(__('The {0} could not be deleted. Please, try again.', __('eav attribute sets attribute')));
         }
+
         return $this->redirect(['action' => 'index']);
     }
 }

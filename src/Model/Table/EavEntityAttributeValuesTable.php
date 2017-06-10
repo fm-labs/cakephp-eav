@@ -94,14 +94,16 @@ class EavEntityAttributeValuesTable extends Table
         $rules->add($rules->existsIn(['eav_attribute_id'], 'EavAttributes'));
         $rules->add($rules->existsIn(['eav_attribute_set_id'], 'EavAttributeSets'));
 
-        $valueChecker = function(EavEntityAttributeValue $entity) {
+        $valueChecker = function (EavEntityAttributeValue $entity) {
             if ($entity->eav_attribute->is_required && empty($entity->value)) {
                 //debug("Eav Attribute " . $entity->eav_attribute->code . " is required but empty val: " . $entity->value);
                 return false;
             }
+
             return true;
         };
         $rules->add($valueChecker, '_required', ['errorField' => 'value', 'message' => 'This attribute is required']);
+
         return $rules;
     }
 }

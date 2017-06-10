@@ -117,6 +117,7 @@ class EavAttributeSetsTable extends Table
                 exit;
             }
         }
+
         return $set;
     }
 }
